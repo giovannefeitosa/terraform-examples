@@ -19,18 +19,24 @@ provider "docker" {
 
 # Create a docker image resource
 # -> docker pull nginx:latest
-resource "docker_image" "nginx" {
-  name         = "nginx:latest"
-  keep_locally = true
+resource "docker_image" "react-image" {
+  name = "react_image"
+  keep_locally = false
+  force_remove = true
+
+  build {
+    path = "../../"
+    dockerfile = "./infrastructure/local/Dockerfile"
+  }
 }
 
 # Create a docker container resource
 # -> same as 'docker run --name nginx -d nginx:latest'
-resource "docker_container" "nginx" {
-  name    = "nginx"
-  image   = docker_image.nginx.latest
+resource "docker_container" "react-container" {
+  name    = "react_container"
+  image   = docker_image.react-image.latest
   ports {
-    internal = 80
-    external = 10123
+    internal = 3000
+    external = 10124
   }
 }

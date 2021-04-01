@@ -1,6 +1,6 @@
 # Hello World Docker inside Terraform
 
-This repository is a hello world of how to setup a local environment
+This example is a hello world of how to setup a local environment
 with Terraform and docker!
 
 ## Benefits
@@ -28,7 +28,7 @@ http://localhost:10123
 
 ## Uninstall
 
-This uninstalls this infrastructure completely from your system!
+Use this to uninstall this infrastructure completely from your system!
 
 ```
 terraform destroy

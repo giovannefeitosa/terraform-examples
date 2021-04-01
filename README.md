@@ -2,4 +2,5 @@
 
 A few examples showing what you can do with Terraform.
 
-See [examples/hello-world-docker/README.md](examples/hello-world-docker/README.md) to a hello world in docker!
+* [Hello world with Docker](examples/hello-world-docker/README.md)
+* [React inside Docker (create-react-app)](examples/terraform-create-react-app/README.md)

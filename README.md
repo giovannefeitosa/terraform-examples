@@ -2,4 +2,4 @@
 
 A few examples showing what you can do with Terraform.
 
-See `examples/hello-world-docker/README.md` to a hello world in docker!
+See [examples/hello-world-docker/README.md](examples/hello-world-docker/README.md) to a hello world in docker!

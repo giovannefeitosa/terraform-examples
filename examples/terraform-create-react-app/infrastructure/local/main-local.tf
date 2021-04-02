@@ -18,7 +18,6 @@ provider "docker" {
 }
 
 # Create a docker image resource
-# -> docker pull nginx:latest
 resource "docker_image" "react-image" {
   name = "react_image"
   keep_locally = false
@@ -31,12 +30,26 @@ resource "docker_image" "react-image" {
 }
 
 # Create a docker container resource
-# -> same as 'docker run --name nginx -d nginx:latest'
 resource "docker_container" "react-container" {
   name    = "react_container"
   image   = docker_image.react-image.latest
+
+  # Expose container port
+  # So you can access http://localhost:10124
   ports {
     internal = 3000
     external = 10124
+  }
+
+  # Add this volume for hot reload
+  volumes {
+    container_path = "/app/src"
+    host_path = abspath("../../react/src")
+  }
+
+  # Add this volume for hot reload
+  volumes {
+    container_path = "/app/public"
+    host_path = abspath("../../react/public")
   }
 }

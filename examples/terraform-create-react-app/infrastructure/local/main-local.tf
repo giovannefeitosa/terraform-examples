@@ -24,6 +24,14 @@ resource "docker_image" "react-image" {
   force_remove = true
 
   build {
+    # ! Restriction !
+    # 
+    # This path will be the docker context
+    # The paths on Dockerfile should
+    # be relative to this path
+    # 
+    # Is not possible to use Dockerfile outside
+    # context
     path = "../../"
     dockerfile = "./infrastructure/local/Dockerfile"
   }
